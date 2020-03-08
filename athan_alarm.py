@@ -57,11 +57,7 @@ time_format = '%d-%m-%Y %H:%M:%S'
 
 for timing in parsed_timings:
 	HOUR, MIN = timing
-    t = time.strptime(
-        f'{DATE} {HOUR}:{MIN}:00',
-        time_format
-    )
-
+    t = time.strptime(f'{DATE} {HOUR}:{MIN}:00',time_format)
     t = time.mktime(t)
 
     EVENT_HAS_NOT_OCCURED = time.time() - t <= 1
