@@ -56,9 +56,9 @@ parsed_timings = [
 time_format = '%d-%m-%Y %H:%M:%S'
 
 for timing in parsed_timings:
-
+	HOUR, MIN = timing
     time_in_seconds_since_epoch = time.strptime(
-        f'{foo["date"]} {timing[0]}:{timing[1]}:00',
+        f'{DATE} {HOUR}:{MIN}:00',
         time_format
     )
 
