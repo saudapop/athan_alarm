@@ -2,8 +2,8 @@ import json
 import datetime
 import time
 import sched
+from pygame import mixer
 
-# from pygame import mixer
 my_sched = sched.scheduler(time.time, time.sleep)
 
 
