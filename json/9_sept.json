@@ -1,0 +1,332 @@
+[
+    {
+        "date": "01-09-2020",
+        "timings": {
+            "Fajr": "05:42 (EDT)",
+            "Sunrise": "07:00 (EDT)",
+            "Dhuhr": "13:32 (EDT)",
+            "Asr": "17:12 (EDT)",
+            "Maghrib": "20:03 (EDT)",
+            "Isha": "21:21 (EDT)"
+        }
+    },
+    {
+        "date": "02-09-2020",
+        "timings": {
+            "Fajr": "05:43 (EDT)",
+            "Sunrise": "07:01 (EDT)",
+            "Dhuhr": "13:31 (EDT)",
+            "Asr": "17:11 (EDT)",
+            "Maghrib": "20:01 (EDT)",
+            "Isha": "21:19 (EDT)"
+        }
+    },
+    {
+        "date": "03-09-2020",
+        "timings": {
+            "Fajr": "05:44 (EDT)",
+            "Sunrise": "07:02 (EDT)",
+            "Dhuhr": "13:31 (EDT)",
+            "Asr": "17:10 (EDT)",
+            "Maghrib": "20:00 (EDT)",
+            "Isha": "21:17 (EDT)"
+        }
+    },
+    {
+        "date": "04-09-2020",
+        "timings": {
+            "Fajr": "05:46 (EDT)",
+            "Sunrise": "07:03 (EDT)",
+            "Dhuhr": "13:31 (EDT)",
+            "Asr": "17:09 (EDT)",
+            "Maghrib": "19:58 (EDT)",
+            "Isha": "21:15 (EDT)"
+        }
+    },
+    {
+        "date": "05-09-2020",
+        "timings": {
+            "Fajr": "05:47 (EDT)",
+            "Sunrise": "07:04 (EDT)",
+            "Dhuhr": "13:30 (EDT)",
+            "Asr": "17:08 (EDT)",
+            "Maghrib": "19:56 (EDT)",
+            "Isha": "21:13 (EDT)"
+        }
+    },
+    {
+        "date": "06-09-2020",
+        "timings": {
+            "Fajr": "05:48 (EDT)",
+            "Sunrise": "07:05 (EDT)",
+            "Dhuhr": "13:30 (EDT)",
+            "Asr": "17:07 (EDT)",
+            "Maghrib": "19:55 (EDT)",
+            "Isha": "21:12 (EDT)"
+        }
+    },
+    {
+        "date": "07-09-2020",
+        "timings": {
+            "Fajr": "05:49 (EDT)",
+            "Sunrise": "07:06 (EDT)",
+            "Dhuhr": "13:30 (EDT)",
+            "Asr": "17:06 (EDT)",
+            "Maghrib": "19:53 (EDT)",
+            "Isha": "21:10 (EDT)"
+        }
+    },
+    {
+        "date": "08-09-2020",
+        "timings": {
+            "Fajr": "05:50 (EDT)",
+            "Sunrise": "07:07 (EDT)",
+            "Dhuhr": "13:29 (EDT)",
+            "Asr": "17:05 (EDT)",
+            "Maghrib": "19:51 (EDT)",
+            "Isha": "21:08 (EDT)"
+        }
+    },
+    {
+        "date": "09-09-2020",
+        "timings": {
+            "Fajr": "05:51 (EDT)",
+            "Sunrise": "07:08 (EDT)",
+            "Dhuhr": "13:29 (EDT)",
+            "Asr": "17:04 (EDT)",
+            "Maghrib": "19:50 (EDT)",
+            "Isha": "21:06 (EDT)"
+        }
+    },
+    {
+        "date": "10-09-2020",
+        "timings": {
+            "Fajr": "05:52 (EDT)",
+            "Sunrise": "07:09 (EDT)",
+            "Dhuhr": "13:29 (EDT)",
+            "Asr": "17:03 (EDT)",
+            "Maghrib": "19:48 (EDT)",
+            "Isha": "21:04 (EDT)"
+        }
+    },
+    {
+        "date": "11-09-2020",
+        "timings": {
+            "Fajr": "05:53 (EDT)",
+            "Sunrise": "07:10 (EDT)",
+            "Dhuhr": "13:28 (EDT)",
+            "Asr": "17:02 (EDT)",
+            "Maghrib": "19:46 (EDT)",
+            "Isha": "21:02 (EDT)"
+        }
+    },
+    {
+        "date": "12-09-2020",
+        "timings": {
+            "Fajr": "05:55 (EDT)",
+            "Sunrise": "07:11 (EDT)",
+            "Dhuhr": "13:28 (EDT)",
+            "Asr": "17:01 (EDT)",
+            "Maghrib": "19:45 (EDT)",
+            "Isha": "21:01 (EDT)"
+        }
+    },
+    {
+        "date": "13-09-2020",
+        "timings": {
+            "Fajr": "05:56 (EDT)",
+            "Sunrise": "07:12 (EDT)",
+            "Dhuhr": "13:28 (EDT)",
+            "Asr": "17:00 (EDT)",
+            "Maghrib": "19:43 (EDT)",
+            "Isha": "20:59 (EDT)"
+        }
+    },
+    {
+        "date": "14-09-2020",
+        "timings": {
+            "Fajr": "05:57 (EDT)",
+            "Sunrise": "07:12 (EDT)",
+            "Dhuhr": "13:27 (EDT)",
+            "Asr": "16:59 (EDT)",
+            "Maghrib": "19:41 (EDT)",
+            "Isha": "20:57 (EDT)"
+        }
+    },
+    {
+        "date": "15-09-2020",
+        "timings": {
+            "Fajr": "05:58 (EDT)",
+            "Sunrise": "07:13 (EDT)",
+            "Dhuhr": "13:27 (EDT)",
+            "Asr": "16:58 (EDT)",
+            "Maghrib": "19:40 (EDT)",
+            "Isha": "20:55 (EDT)"
+        }
+    },
+    {
+        "date": "16-09-2020",
+        "timings": {
+            "Fajr": "05:59 (EDT)",
+            "Sunrise": "07:14 (EDT)",
+            "Dhuhr": "13:27 (EDT)",
+            "Asr": "16:57 (EDT)",
+            "Maghrib": "19:38 (EDT)",
+            "Isha": "20:54 (EDT)"
+        }
+    },
+    {
+        "date": "17-09-2020",
+        "timings": {
+            "Fajr": "06:00 (EDT)",
+            "Sunrise": "07:15 (EDT)",
+            "Dhuhr": "13:26 (EDT)",
+            "Asr": "16:56 (EDT)",
+            "Maghrib": "19:37 (EDT)",
+            "Isha": "20:52 (EDT)"
+        }
+    },
+    {
+        "date": "18-09-2020",
+        "timings": {
+            "Fajr": "06:01 (EDT)",
+            "Sunrise": "07:16 (EDT)",
+            "Dhuhr": "13:26 (EDT)",
+            "Asr": "16:55 (EDT)",
+            "Maghrib": "19:35 (EDT)",
+            "Isha": "20:50 (EDT)"
+        }
+    },
+    {
+        "date": "19-09-2020",
+        "timings": {
+            "Fajr": "06:02 (EDT)",
+            "Sunrise": "07:17 (EDT)",
+            "Dhuhr": "13:26 (EDT)",
+            "Asr": "16:54 (EDT)",
+            "Maghrib": "19:33 (EDT)",
+            "Isha": "20:48 (EDT)"
+        }
+    },
+    {
+        "date": "20-09-2020",
+        "timings": {
+            "Fajr": "06:03 (EDT)",
+            "Sunrise": "07:18 (EDT)",
+            "Dhuhr": "13:25 (EDT)",
+            "Asr": "16:52 (EDT)",
+            "Maghrib": "19:32 (EDT)",
+            "Isha": "20:46 (EDT)"
+        }
+    },
+    {
+        "date": "21-09-2020",
+        "timings": {
+            "Fajr": "06:04 (EDT)",
+            "Sunrise": "07:19 (EDT)",
+            "Dhuhr": "13:25 (EDT)",
+            "Asr": "16:51 (EDT)",
+            "Maghrib": "19:30 (EDT)",
+            "Isha": "20:45 (EDT)"
+        }
+    },
+    {
+        "date": "22-09-2020",
+        "timings": {
+            "Fajr": "06:05 (EDT)",
+            "Sunrise": "07:20 (EDT)",
+            "Dhuhr": "13:24 (EDT)",
+            "Asr": "16:50 (EDT)",
+            "Maghrib": "19:28 (EDT)",
+            "Isha": "20:43 (EDT)"
+        }
+    },
+    {
+        "date": "23-09-2020",
+        "timings": {
+            "Fajr": "06:06 (EDT)",
+            "Sunrise": "07:21 (EDT)",
+            "Dhuhr": "13:24 (EDT)",
+            "Asr": "16:49 (EDT)",
+            "Maghrib": "19:27 (EDT)",
+            "Isha": "20:41 (EDT)"
+        }
+    },
+    {
+        "date": "24-09-2020",
+        "timings": {
+            "Fajr": "06:07 (EDT)",
+            "Sunrise": "07:22 (EDT)",
+            "Dhuhr": "13:24 (EDT)",
+            "Asr": "16:48 (EDT)",
+            "Maghrib": "19:25 (EDT)",
+            "Isha": "20:39 (EDT)"
+        }
+    },
+    {
+        "date": "25-09-2020",
+        "timings": {
+            "Fajr": "06:08 (EDT)",
+            "Sunrise": "07:23 (EDT)",
+            "Dhuhr": "13:23 (EDT)",
+            "Asr": "16:47 (EDT)",
+            "Maghrib": "19:23 (EDT)",
+            "Isha": "20:38 (EDT)"
+        }
+    },
+    {
+        "date": "26-09-2020",
+        "timings": {
+            "Fajr": "06:09 (EDT)",
+            "Sunrise": "07:24 (EDT)",
+            "Dhuhr": "13:23 (EDT)",
+            "Asr": "16:46 (EDT)",
+            "Maghrib": "19:22 (EDT)",
+            "Isha": "20:36 (EDT)"
+        }
+    },
+    {
+        "date": "27-09-2020",
+        "timings": {
+            "Fajr": "06:10 (EDT)",
+            "Sunrise": "07:25 (EDT)",
+            "Dhuhr": "13:23 (EDT)",
+            "Asr": "16:44 (EDT)",
+            "Maghrib": "19:20 (EDT)",
+            "Isha": "20:34 (EDT)"
+        }
+    },
+    {
+        "date": "28-09-2020",
+        "timings": {
+            "Fajr": "06:11 (EDT)",
+            "Sunrise": "07:26 (EDT)",
+            "Dhuhr": "13:22 (EDT)",
+            "Asr": "16:43 (EDT)",
+            "Maghrib": "19:18 (EDT)",
+            "Isha": "20:33 (EDT)"
+        }
+    },
+    {
+        "date": "29-09-2020",
+        "timings": {
+            "Fajr": "06:12 (EDT)",
+            "Sunrise": "07:27 (EDT)",
+            "Dhuhr": "13:22 (EDT)",
+            "Asr": "16:42 (EDT)",
+            "Maghrib": "19:17 (EDT)",
+            "Isha": "20:31 (EDT)"
+        }
+    },
+    {
+        "date": "30-09-2020",
+        "timings": {
+            "Fajr": "06:13 (EDT)",
+            "Sunrise": "07:28 (EDT)",
+            "Dhuhr": "13:22 (EDT)",
+            "Asr": "16:41 (EDT)",
+            "Maghrib": "19:15 (EDT)",
+            "Isha": "20:29 (EDT)"
+        }
+    }
+]
