@@ -3,7 +3,8 @@ import datetime
 import time
 import sched
 
-from pygame import mixer
+# from pygame import mixer
+my_sched = sched.scheduler(time.time, time.sleep)
 
 
 def clean_time_string(string: str):
@@ -56,12 +57,10 @@ parsed_timings = [
 time_format = '%d-%m-%Y %H:%M:%S'
 
 for timing in parsed_timings:
-	HOUR, MIN = timing
-    t = time.strptime(f'{DATE} {HOUR}:{MIN}:00',time_format)
+    HOUR, MIN = timing
+    t = time.strptime(f'{DATE} {HOUR}:{MIN}:00', time_format)
     t = time.mktime(t)
-
     EVENT_HAS_NOT_OCCURED = time.time() - t <= 1
-
     if EVENT_HAS_NOT_OCCURED:
         my_sched.enterabs(t, 1, play_athan)
     else:
