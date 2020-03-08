@@ -13,6 +13,7 @@ def clean_time_string(string: str):
 ################### SOUND SETUP ###########################
 mixer.init()
 mixer.music.load('./athan_mp3s/1_alafasy.mp3')
+mixer.music.set_volume(1.0)
 
 
 def play_athan():
