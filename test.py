@@ -1,73 +1,58 @@
-# import sched
-# import datetime
-# import time
-
-# my_sched = sched.scheduler(time.time, time.sleep)
-
-
-# def play():
-#     print('played at', datetime.datetime.now())
-
-
-# foo = {
-#     "date": "08-03-2020",
-#     "timings": {
-#         "Fajr": "16:49 (EST)",
-#         "Dhuhr": "12:35 (EST)",
-#         "Asr": "14:59 (EST)",
-#         "Maghrib": "16:50 (EST)",
-#         "Isha": "17:16 (EST)",
-#     }
-# }
-
-
-# # returns [['HH', 'MM (EST)'], ...] a two-dimensional array of times
-# parsed_timings = [v.split(':')[:2] for k, v in foo['timings'].items()]
-
-# # remove the '(EST)' from second list item
-# parsed_timings = [
-#     [timing[0], timing[1].replace(' (EST)', '')]
-#     for timing in parsed_timings
-# ]
-
-# time_format = '%d-%m-%Y %H:%M:%S'
-
-# for timing in parsed_timings:
-
-#     time_in_seconds_since_epoch = time.strptime(
-#         f'{foo["date"]} {timing[0]}:{timing[1]}:00',
-#         time_format
-#     )
-
-#     t = time.mktime(t)
-
-#     EVENT_HAS_NOT_OCCURED = time.time() - t <= 1
-
-#     if EVENT_HAS_NOT_OCCURED:
-#         my_sched.enterabs(t, 1, play)
-#     else:
-#         pass
-
-
-# my_sched.run()
-
-import os
-from pygame import mixer
+import json
+import datetime
 import time
 
-mixer.init()
-path = './athan_mp3s'
-sounds = os.listdir(path)
+TIME_FORMAT = '%d-%m-%Y %H:%M:%S'
 
 
-def play_athan(is_fajr=False):
-    if is_fajr:
-        i = 0
+def clean_time_string(string: str):
+    return string.replace(' (EST)', '').replace(' (EDT)', '')
+
+
+MONTHS = ['jan', 'feb', 'march',
+          'april', 'may', 'june',
+          'july', 'aug', 'sept',
+          'oct', 'nov', 'dec']
+
+PRAYER_NAMES = ["Fajr", "Dhuhr",
+                "Asr", "Maghrib", "Isha", ]
+
+FAJR = 'Fajr'
+
+TODAY = datetime.datetime.now()
+MONTH_NUM = TODAY.month
+MONTH_ENG = MONTHS[MONTH_NUM - 1]
+DAY = TODAY.day - 1
+
+
+# read today's prayer times
+with open(f'./json/{MONTH_NUM}_{MONTH_ENG}.json') as f:
+    PRAYER_TIMES = json.loads(f.read())
+    DATE = PRAYER_TIMES[DAY]['date']
+    TIMINGS = PRAYER_TIMES[DAY]['timings']
+
+
+# returns [['HH', 'MM (EST)'], ...] a two-dimensional array of times
+parsed_timings = [v.split(':')[:2] for k, v in TIMINGS.items()]
+
+
+# remove the '(EST)' from second list item which has the min
+parsed_timings = [
+    [PRAYER_NAMES[i], timing[0], clean_time_string(timing[1])]
+    for i, timing in enumerate(parsed_timings)
+]
+
+
+for timing in parsed_timings:
+    NAME_OF_PRAYER, HOUR, MIN = timing
+    t = time.strptime(f'{DATE} {HOUR}:{MIN}:00', TIME_FORMAT)
+    t = time.mktime(t)
+    EVENT_HAS_NOT_OCCURED = time.time() - t <= 1
+
+    if EVENT_HAS_NOT_OCCURED:
+        if NAME_OF_PRAYER == FAJR:
+            print('fajr time')
+        else:
+            print('not fajr')
     else:
-        i = 1
-    mixer.music.load(f'./{path}/{sounds[i]}')
-    mixer.music.play()
-    time.sleep(300)
-
-
-play_athan(is_fajr=True)
+        pass
