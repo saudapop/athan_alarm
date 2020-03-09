@@ -15,7 +15,7 @@ MONTHS = ['jan', 'feb', 'march',
           'july', 'aug', 'sept',
           'oct', 'nov', 'dec']
 
-TIMINGS = ["Fajr", "Sunrise", "Dhuhr",
+TIMINGS = ["Fajr", "Dhuhr",
            "Asr", "Maghrib", "Isha", ]
 
 for i, month in enumerate(MONTHS):

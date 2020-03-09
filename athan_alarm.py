@@ -13,12 +13,18 @@ def clean_time_string(string: str):
 
 ################### SOUND SETUP ###########################
 mixer.init()
-mixer.music.load('./athan_mp3s/1_alafasy.mp3')
-mixer.music.set_volume(1.0)
+path = './athan_mp3s'
+sounds = os.listdir(path)
 
 
-def play_athan():
+def play_athan(is_fajr=False):
+    if is_fajr:
+        i = 0
+    else:
+        i = 1
+    mixer.music.load(f'./{path}/{sounds[i]}')
     mixer.music.play()
+    time.sleep(300)
 #---------------------------------------------------------#
 
 ################### DATE CONSTANTS ########################
