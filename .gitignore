@@ -1,2 +1,5 @@
 .vscode
 /json/*
+/wav
+/mp3
+*.log
