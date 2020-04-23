@@ -2,7 +2,7 @@ import json
 import os
 import requests
 
-# Get coordiantes from https://www.latlong.net/
+# Get coordinates from https://www.latlong.net/
 
 LATITUDE =  # fill in your latitude
 LONGITUDE =  # Fill in your longitude

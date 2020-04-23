@@ -1,5 +1,10 @@
 .vscode
-/json/*
+/prayer_times
 /wav
 /mp3
 *.log
+__pycache__
+/client/node_modules
+/client/.cache
+/client/dist
+preferences.json
