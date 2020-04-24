@@ -34,7 +34,7 @@ and then handle building the rest of the application for you. Once it is done. T
 
 ### Development
 
-To run in development mode simply run `npm start` from the client directory(`cd client && npm start`) in a separate window.
+To run in development mode simply run `npm start` from the client directory(`cd client && npm start`) in a separate window while the app is running (`make run` or activate python virtual env and then `python app.py`).
 **NOTE:** After building it will say the app is running on `localhost:1234`, don't go to that. It will not have the same origin as the python app and requests will not work as expected. Instead go to http://localhost:64876 as provided by the python app.
 
 The front end uses ParcelJS and will watch the files for changes and rebuild reload the browser automatically.
