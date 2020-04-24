@@ -13,7 +13,7 @@ This interactive method will:
 - optionally create a python virtual environment
 - prompt for the coordinates of your location from https://www.latlong.net/
 
-and then handle building the rest of the application for you. Once it is done. The application should be available at http://localhost:86753
+and then handle building the rest of the application for you. Once it is done. The application should be available at http://localhost:64876
 
 ### Manual install
 
