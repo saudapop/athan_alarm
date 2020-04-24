@@ -6,8 +6,8 @@
 	"proxy": "http://0.0.0.0:25526/",
 	"scripts": {
 		"clean": "rm dist/bundle.js",
-		"start": "parcel index.html",
-		"build": "parcel build index.html"
+		"start": "parcel ./src/index.html",
+		"build": "parcel build ./src/index.html"
 	},
 	"keywords": [],
 	"author": "",
