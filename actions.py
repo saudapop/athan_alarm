@@ -39,17 +39,7 @@ def restart_scheduler():
     SCHEDULING_PROGRAM.start()
     print('CURRENTLY SCHEDULED: ', get_current_prayers_list())
 
-
-def get_preferences():
-    return {
-        'data': [
-            {
-                'NAME': PRAYER_NAME,
-                'TIME': DETAILS['TIME_PARSED'],
-                'SHOULD_PLAY': PREFERENCES[PRAYER_NAME]
-            } for PRAYER_NAME, DETAILS in EVENTS.items()
-        ]
-    }
+# For POST to /update-scheduler/
 
 
 def refresh_scheduling_program(NEW_PREFERENCES):
@@ -62,6 +52,20 @@ def refresh_scheduling_program(NEW_PREFERENCES):
     update_preferences(NEW_PREFERENCES)
     update_schedule()
     restart_scheduler()
+
+# for GET /get-preferences/
+
+
+def get_preferences():
+    return {
+        'data': [
+            {
+                'NAME': PRAYER_NAME,
+                'TIME': DETAILS['TIME_PARSED'],
+                'SHOULD_PLAY': PREFERENCES[PRAYER_NAME]
+            } for PRAYER_NAME, DETAILS in EVENTS.items()
+        ]
+    }
 
 
 update_schedule()
