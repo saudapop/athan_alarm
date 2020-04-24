@@ -8,3 +8,4 @@ __pycache__
 /client/.cache
 /client/dist
 preferences.json
+/athan-app-venv

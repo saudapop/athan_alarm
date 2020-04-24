@@ -1,13 +1,11 @@
 # from test import EVENTS, PREFERENCES
 from actions import refresh_scheduling_program, get_preferences
 from flask import Flask, request, render_template
-from flask_cors import CORS, cross_origin
 
 app = Flask(__name__,
             static_url_path='',
-            static_folder='client',
-            template_folder='client')
-CORS(app)
+            static_folder='client/dist',
+            template_folder='client/dist')
 
 
 @app.route('/')

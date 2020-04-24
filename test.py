@@ -16,9 +16,11 @@ import subprocess
 
 SCHEDULE = sched.scheduler(time.time, time.sleep)
 
+# remove the '(EST)' from second list item which is a string containing the minutes
+
 
 def clean_time_string(string: str):
-    return string.replace(' (EST)', '').replace(' (EDT)', '')
+    return string[:2]
 
 
 def event_has_not_occurred(prayer_time: int):
@@ -87,7 +89,7 @@ logging.info(f'\ntimings fetched for {DATE}\n')
 PARSED_TIMINGS = [v.split(':')[:2] for k, v in TIMINGS.items()]
 
 
-# remove the '(EST)' from second list item which is a string containing the minutes
+# format timings for scheduling
 PARSED_TIMINGS = [
     [PRAYER_NAMES[i], timing[0], clean_time_string(timing[1])]
     for i, timing in enumerate(PARSED_TIMINGS)
