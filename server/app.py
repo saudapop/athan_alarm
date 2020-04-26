@@ -1,12 +1,12 @@
 # from test import EVENTS, PREFERENCES
-from actions import refresh_scheduling_program, get_preferences
 from flask import Flask, request, render_template, jsonify
-from preferences_validation import validate_preferences_payload, UpdatePreferencesException
+from utils.actions import refresh_scheduling_program, get_preferences
+from utils.preferences_validation import validate_preferences_payload, UpdatePreferencesException
 
 app = Flask(__name__,
             static_url_path='',
-            static_folder='client/dist',
-            template_folder='client/dist')
+            static_folder='../client/dist',
+            template_folder='../client/dist')
 
 
 @app.errorhandler(UpdatePreferencesException)
@@ -30,9 +30,9 @@ def preferences():
 def update_and_restart_scheduler():
     NEW_PREFERENCES = request.get_json()
     validate_preferences_payload(NEW_PREFERENCES)
-    # refresh_scheduling_program(NEW_PREFERENCES)
-    # return '👍'
+    refresh_scheduling_program(NEW_PREFERENCES)
+    return '👍'
 
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=64876)
+    app.run(debug=True, host='0.0.0.0')
