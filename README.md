@@ -1,7 +1,5 @@
 **Requirements:**
-Docker
-or
-python3, nodejs, npm (for manual install)
+python3, pip, nodejs, npm
 
 ### Recommended install
 
