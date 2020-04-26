@@ -1,3 +1,4 @@
+cd server;
 printf "\n\nAssalamualaikum wa rahmatullahi wa barakatuhu \nالسَّلاَمُ عَلَيْكُمْ وَرَحْمَةُ اللهِ وَبَرَكَاتُهُ\n\n\n"
 
 printf "Would you like the python virtual environment to be created for you?\nIf not, make sure you are in a virtual environment and have the requirements installed\n\n(Enter y or n)\n"
@@ -36,8 +37,8 @@ printf "\n"
 python3 fetch_prayer_times.py --LAT $VAR_LAT --LONG $VAR_LONG;
 
 printf "\n\n Installing client side dependencies and building the front end."
-cd client;
+cd ../client;
 npm i;
 npm run build;
-cd ..;
+cd ../server;
 python3 app.py;
