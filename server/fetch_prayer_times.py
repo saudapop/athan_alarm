@@ -54,3 +54,14 @@ for i, month in enumerate(tqdm(MONTHS, ncols=144)):
     FILE_NAME = f'./{FOLDER}/{i+1}_{month}.json'
     with open(FILE_NAME, "w") as FILE:
         FILE.write(JSON_OBJECT)
+
+with open('./preferences.json', "w") as FILE:
+    PREFERENCES = {
+        "Fajr": 1,
+        "Dhuhr": 1,
+        "Asr": 1,
+        "Maghrib": 1,
+        "Isha": 1
+    }
+    PREFERENCES = json.dumps(PREFERENCES, indent=4)
+    FILE.write(PREFERENCES)
