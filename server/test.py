@@ -79,7 +79,7 @@ EVENTS = {}
 
 
 # read today's prayer times
-with open(f'./prayer_times/{MONTH_NUM}_{MONTH_ENG}.json') as f:
+with open(f'./data/prayer_times/{MONTH_NUM}_{MONTH_ENG}.json') as f:
     PRAYER_TIMES = json.loads(f.read())
     DATE = PRAYER_TIMES[DAY]['date']
     TIMINGS = PRAYER_TIMES[DAY]['timings']
@@ -95,7 +95,7 @@ PARSED_TIMINGS = [
     for i, timing in enumerate(PARSED_TIMINGS)
 ]
 
-with open('./preferences.json') as f:
+with open('./data/preferences.json') as f:
     PREFERENCES = json.loads(f.read())
 
 # loop over timings and populate EVENTS object

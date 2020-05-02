@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  api:
+    build: "./server"
+    volumes:
+      - ./server/data:/app/data
+    expose:
+      - 5000
+  client:
+    build: "./client"
+    ports:
+      - 80:80
