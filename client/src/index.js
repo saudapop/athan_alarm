@@ -9,6 +9,8 @@ axios
     Dhuhr: 0,
     Asr: 0,
     Maghrib: 1,
+    Fajr: 0,
+    Isha: 0,
   })
   .then((res) => console.log(res))
   .catch((e) => console.log(e));

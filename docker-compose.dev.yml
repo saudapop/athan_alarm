@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  api:
+    build: "./server"
+    volumes:
+      - ./server:/app
+    expose:
+      - 5000
+    ports:
+      - 5000:5000
+  client-dev-nginx:
+    build: "./client"
+    volumes:
+      - ./client/dist:/app/dist
+    ports:
+      - 80:80

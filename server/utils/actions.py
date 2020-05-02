@@ -5,7 +5,7 @@ from test import SCHEDULE, EVENTS, PREFERENCES, event_has_not_occurred
 
 def update_preferences(NEW_PREFERENCES: dict):
     global PREFERENCES
-    with open('./preferences.json', 'w') as FILE:
+    with open('./data/preferences.json', 'w') as FILE:
         FILE.write(json.dumps(NEW_PREFERENCES, indent=4))
 
     PREFERENCES = NEW_PREFERENCES
