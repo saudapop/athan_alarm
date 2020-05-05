@@ -1,4 +1,3 @@
-# from test import EVENTS, PREFERENCES
 from flask import Flask, request, render_template, jsonify
 from utils.actions import refresh_scheduling_program, get_preferences
 from utils.preferences_validation import validate_preferences_payload, UpdatePreferencesException

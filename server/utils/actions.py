@@ -1,6 +1,6 @@
 import json
 import multiprocessing
-from test import SCHEDULE, EVENTS, PREFERENCES, event_has_not_occurred
+from load_scheduler import SCHEDULE, EVENTS, PREFERENCES, event_has_not_occurred, logging
 
 
 def update_preferences(NEW_PREFERENCES: dict):
@@ -23,26 +23,26 @@ def update_schedule():
         IS_CURRENTLY_SCHEDULED = NAME_OF_PRAYER in CURRENT_PRAYERS
         if event_has_not_occurred(DETAILS['TIME']):
             if SHOULD_SCHEDULE_EVENT and not IS_CURRENTLY_SCHEDULED:
-                print(f'SCHEDULING {NAME_OF_PRAYER}')
+                logging.info(f'SCHEDULING {NAME_OF_PRAYER}')
                 SCHEDULE.enterabs(*DETAILS['EVENT'])
             elif not SHOULD_SCHEDULE_EVENT and IS_CURRENTLY_SCHEDULED:
-                print(f'CANCELLING {NAME_OF_PRAYER}')
+                logging.info(f'CANCELLING {NAME_OF_PRAYER}')
                 SCHEDULE.cancel(DETAILS['EVENT'])
 
 
 def restart_scheduler():
     global SCHEDULING_PROGRAM
-    print('RESTARTING SCHEDULING PROGRAM')
+    logging.info('RESTARTING SCHEDULING PROGRAM')
     SCHEDULING_PROGRAM.kill()
     SCHEDULING_PROGRAM.join()
     SCHEDULING_PROGRAM = multiprocessing.Process(target=SCHEDULE.run)
     SCHEDULING_PROGRAM.start()
-    print('CURRENTLY SCHEDULED: ', get_current_prayers_list())
+    logging.info(f'CURRENTLY SCHEDULED: {get_current_prayers_list()}')
 
 # For POST to /update-scheduler/
 
 
-def refresh_scheduling_program(NEW_PREFERENCES):
+def refresh_scheduling_program(NEW_PREFERENCES: dict):
     """
     Helper function that updates
     - `PREFERENCES` (JSON map of which prayers to play athan for)
@@ -69,6 +69,6 @@ def get_preferences():
 
 
 update_schedule()
-print('INIT SCHEDULE:', get_current_prayers_list())
+logging.info(f'INIT SCHEDULE: {get_current_prayers_list()}')
 SCHEDULING_PROGRAM = multiprocessing.Process(target=SCHEDULE.run)
 SCHEDULING_PROGRAM.start()
