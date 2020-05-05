@@ -4,21 +4,27 @@ import time
 import sched
 import os
 import logging
-# from pygame import mixer
 import threading
+import multiprocessing
 import subprocess
 
 logging.basicConfig(
-    filename="/home/pi/Desktop/azan_prayer_times/athan.log",
+    filename="./athan.log",
     level=logging.INFO,
     format="%(asctime)s:%(message)s",
 )
 
 SCHEDULE = sched.scheduler(time.time, time.sleep)
 
+# remove the '(EST)' from second list item which is a string containing the minutes
+
 
 def clean_time_string(string: str):
-    return string.replace(' (EST)', '').replace(' (EDT)', '')
+    return string[:2]
+
+
+def event_has_not_occurred(prayer_time: int):
+    return time.time() - prayer_time <= 1
 
 
 ################### SOUND SETUP ###########################
@@ -48,17 +54,17 @@ def bluetooth_speaker(file_name: str):
                       f'/home/pi/Desktop/azan_prayer_times/wav/{file_name}'])
 
 
-def audio_jack(file_name: str):
-    time.sleep(.1)
-    subprocess.Popen(['aplay',
-                      f'/home/pi/Desktop/azan_prayer_times/wav/{file_name}'])
+# def audio_jack(file_name: str):
+#     time.sleep(.1)
+#     subprocess.Popen(['aplay',
+#                       f'/home/pi/Desktop/azan_prayer_times/wav/{file_name}'])
 
 
 def play_athan(prayer_name):
     logging.info(f'playing {prayer_name} athan')
     sound = fajr if prayer_name == 'Fajr' else regular
     threading.Thread(target=bluetooth_speaker, args=(sound,)).start()
-    threading.Thread(target=audio_jack, args=(sound,)).start()
+    # threading.Thread(target=audio_jack, args=(sound,)).start()
 
 
 #---------------------------------------------------------#
@@ -81,11 +87,12 @@ MONTH_ENG = MONTHS[MONTH_NUM - 1]
 DAY = TODAY.day - 1
 
 TIME_FORMAT = '%d-%m-%Y %H:%M:%S'
+EVENTS = {}
 #---------------------------------------------------------#
 
 
 # read today's prayer times
-with open(f'./json/{MONTH_NUM}_{MONTH_ENG}.json') as f:
+with open(f'./data/prayer_times/{MONTH_NUM}_{MONTH_ENG}.json') as f:
     PRAYER_TIMES = json.loads(f.read())
     DATE = PRAYER_TIMES[DAY]['date']
     TIMINGS = PRAYER_TIMES[DAY]['timings']
@@ -95,25 +102,24 @@ logging.info(f'\ntimings fetched for {DATE}\n')
 PARSED_TIMINGS = [v.split(':')[:2] for k, v in TIMINGS.items()]
 
 
-# remove the '(EST)' from second list item which is a string containing the minutes
+# format timings for scheduling
 PARSED_TIMINGS = [
     [PRAYER_NAMES[i], timing[0], clean_time_string(timing[1])]
     for i, timing in enumerate(PARSED_TIMINGS)
 ]
 
-# loop over timings and schedule them if they haven't occured
+with open('./data/preferences.json') as f:
+    PREFERENCES = json.loads(f.read())
+
+# loop over timings and populate EVENTS object
 for PRAYER in PARSED_TIMINGS:
     NAME_OF_PRAYER, HOUR, MIN = PRAYER
     t = time.strptime(f'{DATE} {HOUR}:{MIN}:00', TIME_FORMAT)
     t = time.mktime(t)
-    EVENT_HAS_NOT_OCCURED = time.time() - t <= 1
-    if EVENT_HAS_NOT_OCCURED:
-        logging.info(f'adding to the scheduler: {NAME_OF_PRAYER} {HOUR} {MIN}')
-        SCHEDULE.enterabs(t, 1, play_athan, argument=(NAME_OF_PRAYER,))
-    else:
-        pass
-
-try:
-    SCHEDULE.run()
-except Exception as e:
-    logging.info(f'error {e}')
+    NEW_EVENT = sched.Event(
+        t, 1, play_athan, argument=(NAME_OF_PRAYER,), kwargs={})
+    EVENTS[NAME_OF_PRAYER] = {
+        'EVENT': NEW_EVENT,
+        'TIME': t,
+        'TIME_PARSED': f'{datetime.datetime.strptime(f"{HOUR}:{MIN}", "%H:%M").strftime("%I:%M %p")}'
+    }

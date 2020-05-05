@@ -1,4 +1,4 @@
-from test import PRAYER_NAMES
+from load_scheduler import PRAYER_NAMES
 from flask import jsonify
 
 

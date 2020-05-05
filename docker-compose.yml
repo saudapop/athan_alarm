@@ -4,10 +4,14 @@ services:
   api:
     build: "./server"
     volumes:
-      - ./server/data:/app/data
+      - ./server:/app
     expose:
       - 5000
-  client:
+    ports:
+      - 5000:5000
+  client-dev-nginx:
     build: "./client"
+    volumes:
+      - ./client/dist:/app/dist
     ports:
       - 80:80
