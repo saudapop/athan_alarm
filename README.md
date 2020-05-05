@@ -3,11 +3,7 @@ python3, pip, nodejs, npm
 
 optional: docker
 
-### Run using Docker
-
-Just run `make prod`.
-
-### Manual install
+### install
 
 -   Create and activate your python virtual environment then `pip install -r requirements.txt`
 
