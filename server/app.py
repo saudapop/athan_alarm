@@ -1,6 +1,7 @@
 from flask import Flask, request, render_template, jsonify
 from utils.actions import refresh_scheduling_program, get_preferences
 from utils.preferences_validation import validate_preferences_payload, UpdatePreferencesException
+
 app = Flask(__name__,
             static_url_path='',
             static_folder='../client/dist',
