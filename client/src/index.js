@@ -6,11 +6,11 @@ axios.get("/api/get-preferences/").then((res) => console.log(res));
 
 axios
   .post("/api/update-scheduler/", {
-    Dhuhr: 0,
-    Asr: 0,
+    Dhuhr: 1,
+    Asr: 1,
     Maghrib: 1,
-    Fajr: 0,
-    Isha: 0,
+    Fajr: 1,
+    Isha: 1,
   })
   .then((res) => console.log(res))
   .catch((e) => console.log(e));
