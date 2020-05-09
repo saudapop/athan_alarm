@@ -68,8 +68,7 @@ def get_preferences():
     }
 
 
-if __name__ == "main":
-    update_schedule()
-    logging.info(f'INIT SCHEDULE: {get_current_prayers_list()}')
-    SCHEDULING_PROGRAM = multiprocessing.Process(target=SCHEDULE.run)
-    SCHEDULING_PROGRAM.start()
+update_schedule()
+logging.info(f'INIT SCHEDULE: {get_current_prayers_list()}')
+SCHEDULING_PROGRAM = multiprocessing.Process(target=SCHEDULE.run)
+SCHEDULING_PROGRAM.start()
