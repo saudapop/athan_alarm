@@ -1,6 +1,10 @@
 import json
+import sched
+import time
 import multiprocessing
-from load_scheduler import SCHEDULE, EVENTS, PREFERENCES, event_has_not_occurred, logging
+from load_scheduler import EVENTS, PREFERENCES, event_has_not_occurred, logging
+
+SCHEDULE = sched.scheduler(time.time, time.sleep)
 
 
 def update_preferences(NEW_PREFERENCES: dict):
@@ -21,12 +25,19 @@ def update_schedule():
     for NAME_OF_PRAYER, DETAILS in EVENTS.items():
         SHOULD_SCHEDULE_EVENT = PREFERENCES[NAME_OF_PRAYER] == 1
         IS_CURRENTLY_SCHEDULED = NAME_OF_PRAYER in CURRENT_PRAYERS
-        if event_has_not_occurred(DETAILS['TIME']):
+        EVENT_HAS_NOT_OCCURRED = event_has_not_occurred(DETAILS['TIME'])
+
+        if IS_CURRENTLY_SCHEDULED and not EVENT_HAS_NOT_OCCURRED:
+            logging.info(
+                f'CANCELLING {NAME_OF_PRAYER} BECAUSE EVENT HAS ALREADY OCCURRED')
+            SCHEDULE.cancel(DETAILS['EVENT'])
+        if EVENT_HAS_NOT_OCCURRED:
             if SHOULD_SCHEDULE_EVENT and not IS_CURRENTLY_SCHEDULED:
                 logging.info(f'SCHEDULING {NAME_OF_PRAYER}')
                 SCHEDULE.enterabs(*DETAILS['EVENT'])
             elif not SHOULD_SCHEDULE_EVENT and IS_CURRENTLY_SCHEDULED:
-                logging.info(f'CANCELLING {NAME_OF_PRAYER}')
+                logging.info(
+                    f'CANCELLING {NAME_OF_PRAYER} BECAUSE NOT ON SCHEDULE')
                 SCHEDULE.cancel(DETAILS['EVENT'])
 
 

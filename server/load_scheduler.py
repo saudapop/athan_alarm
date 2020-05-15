@@ -5,8 +5,6 @@ import sched
 import os
 import logging
 import threading
-import multiprocessing
-from pygame import mixer
 import subprocess
 
 logging.basicConfig(
@@ -14,8 +12,6 @@ logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s:%(message)s",
 )
-
-SCHEDULE = sched.scheduler(time.time, time.sleep)
 
 # remove the '(EST)' from second list item which is a string containing the minutes
 
@@ -29,7 +25,6 @@ def event_has_not_occurred(prayer_time: int):
 
 
 ################### SOUND SETUP ###########################
-mixer.init()
 path = './mp3'
 sounds = os.listdir(path)
 fajr = '0_fajr.mp3'
@@ -43,15 +38,9 @@ regular = '1_regular.mp3'
 #                       f'/home/pi/Desktop/athan-app/wav/{file_name}'])
 
 
-# def audio_jack(file_name: str):
-#     time.sleep(.1)
-#     subprocess.Popen(['aplay',
-#                       f'/home/pi/Desktop/azan_prayer_times/wav/{file_name}'])
-
 def audio_jack(file_name: str):
-    mixer.music.load(f'./{path}/{file_name}')
-    mixer.music.play()
-    time.sleep(300)
+    subprocess.Popen(['omxplayer',
+                      f'./mp3/{file_name}'])
 
 
 def play_athan(prayer_name):
