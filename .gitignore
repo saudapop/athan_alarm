@@ -1,7 +1,6 @@
 .vscode
 prayer_times
-/wav
-/mp3
+wav
 *.log
 __pycache__
 /client/node_modules
@@ -9,3 +8,5 @@ __pycache__
 /client/dist
 preferences.json
 /athan-app-venv
+._*
+mp3

@@ -5,7 +5,6 @@ import sched
 import os
 import logging
 import threading
-import multiprocessing
 import subprocess
 
 logging.basicConfig(
@@ -13,8 +12,6 @@ logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s:%(message)s",
 )
-
-SCHEDULE = sched.scheduler(time.time, time.sleep)
 
 # remove the '(EST)' from second list item which is a string containing the minutes
 
@@ -28,47 +25,32 @@ def event_has_not_occurred(prayer_time: int):
 
 
 ################### SOUND SETUP ###########################
-# mixer.init()
-# path = './mp3'
-# sounds = os.listdir(path)
+path = './mp3'
+sounds = os.listdir(path)
+fajr = '0_fajr.mp3'
+regular = '1_regular.mp3'
 
 
-# def play_athan(is_fajr=False):
-#     i = 0 if is_fajr else 1
-#     mixer.music.load(f'./{path}/{sounds[i]}')
-#     mixer.music.play()
-#     time.sleep(300)
-
-
-# def play_fajr_athan():
-#     play_athan(is_fajr=True)
-
-fajr = '0_alafasy.wav'
-regular = '1_mecca.wav'
-
-
-def bluetooth_speaker(file_name: str):
-    subprocess.Popen(['aplay',
-                      '-D',
-                      'bluealsa:SRV=org.bluealsa,DEV=EB:79:35:3C:D6:F3,PROFILE=a2dp',
-                      f'/home/pi/Desktop/azan_prayer_times/wav/{file_name}'])
-
-
-# def audio_jack(file_name: str):
-#     time.sleep(.1)
+# def bluetooth_speaker(file_name: str):
 #     subprocess.Popen(['aplay',
-#                       f'/home/pi/Desktop/azan_prayer_times/wav/{file_name}'])
+#                       '-D',
+#                       'bluealsa:SRV=org.bluealsa,DEV=EB:79:35:3C:D6:F3,PROFILE=a2dp',
+#                       f'/home/pi/Desktop/athan-app/wav/{file_name}'])
+
+
+def audio_jack(file_name: str):
+    subprocess.Popen(['omxplayer',
+                      f'./mp3/{file_name}'])
 
 
 def play_athan(prayer_name):
     logging.info(f'playing {prayer_name} athan')
     sound = fajr if prayer_name == 'Fajr' else regular
-    threading.Thread(target=bluetooth_speaker, args=(sound,)).start()
-    # threading.Thread(target=audio_jack, args=(sound,)).start()
+    threading.Thread(target=audio_jack, args=(sound,)).start()
+    # threading.Thread(target=bluetooth_speaker, args=(sound,)).start()
 
 
 #---------------------------------------------------------#
-
 
 ######################## CONSTANTS ########################
 PRAYER_NAMES = ["Fajr", "Dhuhr",
