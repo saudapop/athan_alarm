@@ -3,10 +3,12 @@ import subprocess
 import threading
 import time
 
+test_sound = '/usr/share/sounds/alsa/Front_Center.wav'
+fajr = './mp3/1_regular.mp3'
+
 
 def audio_jack(file_name: str):
-    subprocess.Popen(['omxplayer', './mp3/1_regular.mp3'])
-
+    subprocess.Popen(['omxplayer', test_sound])
 
 
 def play_athan(prayer_name):
@@ -16,3 +18,5 @@ def play_athan(prayer_name):
 
 p = multiprocessing.Process(target=play_athan, args=('Isha',))
 p.start()
+time.sleep(3)
+p.kill()
