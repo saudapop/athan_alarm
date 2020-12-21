@@ -5,6 +5,8 @@ optional: docker
 
 ### install
 
+NOTE: Use python 3.6.8. I tried newer versions like python3.8 and 3.9 and they cause annoying issues that aren't worth spending time on.
+
 -   Create and activate your python virtual environment then `pip install -r requirements.txt`
 
 ** Build front-end deps **

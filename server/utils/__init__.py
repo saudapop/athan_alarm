@@ -1,5 +1,8 @@
 import os
+import datetime
 from fetch_prayer_times import fetch_prayer_times
 
-if 'data' not in os.listdir() or 'prayer_times' and 'preferences.json' not in os.listdir('./data'):
+YEAR = datetime.datetime.now().year
+
+if 'data' not in os.listdir() or str(YEAR) not in os.listdir('./data'):
     fetch_prayer_times()
