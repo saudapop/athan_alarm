@@ -1,4 +1,5 @@
 import json
+import datetime
 import os
 import requests
 import argparse
@@ -23,6 +24,8 @@ else:
         'https://ipapi.co/json/').json()
     LATITUDE = LOCAL_INFO['latitude']
     LONGITUDE = LOCAL_INFO['longitude']
+
+YEAR = datetime.datetime.year
 
 BASE_URL = 'http://api.aladhan.com/v1/calendar?latitude={}&longitude={}&method=2&month={}&year=2020'
 

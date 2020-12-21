@@ -64,6 +64,7 @@ MONTHS = ['jan', 'feb', 'march',
           'oct', 'nov', 'dec']
 
 TODAY = datetime.datetime.now()
+YEAR = TODAY.year
 MONTH_NUM = TODAY.month
 MONTH_ENG = MONTHS[MONTH_NUM - 1]
 DAY = TODAY.day - 1
