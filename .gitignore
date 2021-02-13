@@ -10,3 +10,5 @@ preferences.json
 /athan-app-venv
 ._*
 mp3
+.venv
+data

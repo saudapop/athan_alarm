@@ -64,6 +64,7 @@ MONTHS = ['jan', 'feb', 'march',
           'oct', 'nov', 'dec']
 
 TODAY = datetime.datetime.now()
+YEAR = TODAY.year
 MONTH_NUM = TODAY.month
 MONTH_ENG = MONTHS[MONTH_NUM - 1]
 DAY = TODAY.day - 1
@@ -74,7 +75,7 @@ EVENTS = {}
 
 
 # read today's prayer times
-with open(f'./data/prayer_times/{MONTH_NUM}_{MONTH_ENG}.json') as f:
+with open(f'./data/{YEAR}/{MONTH_NUM}_{MONTH_ENG}.json') as f:
     PRAYER_TIMES = json.loads(f.read())
     DATE = PRAYER_TIMES[DAY]['date']
     TIMINGS = PRAYER_TIMES[DAY]['timings']
