@@ -13,6 +13,8 @@ PARSER.add_argument('--LAT', type=float,
                     help="The geographical latitude in degrees of the location")
 PARSER.add_argument('--LONG', type=float,
                     help="The geographical longitude in degrees of the location")
+PARSER.add_argument('--YEAR', type=int,
+                    help="The year to fetch times for")
 ARGS = PARSER.parse_args()
 
 # Get local coordinates from https://ipapi.co/json/ or search for other coordinates at https://www.latlong.net/
@@ -25,7 +27,10 @@ else:
     LATITUDE = LOCAL_INFO['latitude']
     LONGITUDE = LOCAL_INFO['longitude']
 
-YEAR = datetime.datetime.now().year
+if ARGS.YEAR:
+    YEAR = ARGS.YEAR
+else:
+    YEAR = datetime.datetime.now().year
 
 BASE_URL = 'http://api.aladhan.com/v1/calendar?latitude={}&longitude={}&method=2&month={}&year={}'
 
